@@ -1,18 +1,18 @@
 import streamlit as st
 import requests
 
-API_URL = "https://flowguard-api-938724554929.europe-west1.run.app"
+API_URL = "https://flowguard-api-938724554929.europe-west1.run.app/predict"
 
 st.title("FlowGuard Connection Predictor")
 
 st.write("Enter connection details below:")
 
-proto = st.selectbox("Protocol", ["TCP", "UDP", "ICMP"])
-conn_state = st.text_input("Connection State", "ESTABLISHED")
+proto = st.selectbox("Protocol", ["TCP", "UDP"])
+conn_state = st.text_input("Connection State", "S1")
 history = st.text_input("History", "ShADadfF")
 duration = st.number_input("Duration (seconds)", min_value=0.0, value=10.0)
 orig_pkts = st.number_input("Originator Packets", min_value=0, value=5)
-orig_ip_bytes = st.number_input("Originator IP Bytes", min_value=0, value=500)
+orig_ip_bytes = st.number_input("Originator IP Bytes", min_value=0, value=100)
 
 if st.button("Predict"):
     input_data = {
