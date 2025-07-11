@@ -33,14 +33,14 @@ st.header("🔢 Connection Details")
 col1, col2 = st.columns(2)
 
 with col1:
-    proto = st.selectbox("Protocol", ["TCP", "UDP"])
-    conn_state = st.text_input("Connection State", "S1")
-    history = st.text_input("History", "ShADadfF")
+    proto = st.selectbox("Protocol")
+    conn_state = st.text_input("Connection State")
+    history = st.text_input("History")
 
 with col2:
-    duration = st.number_input("Duration (seconds)", min_value=0.0, value=10.0)
-    orig_pkts = st.number_input("Originator Packets", min_value=0, value=5)
-    orig_ip_bytes = st.number_input("Originator IP Bytes", min_value=0, value=500)
+    duration = st.number_input("Duration (seconds)")
+    orig_pkts = st.number_input("Originator Packets")
+    orig_ip_bytes = st.number_input("Originator IP Bytes")
 
 st.markdown("---")
 
