@@ -17,9 +17,6 @@ uploaded_file = st.file_uploader("📂 Upload CSV", type=["csv"])
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
-    st.subheader("📄 Uploaded File")
-    st.write(df.head())
-
     required_cols = ["proto", "conn_state", "history", "duration", "orig_pkts", "orig_ip_bytes"]
     missing_cols = [col for col in required_cols if col not in df.columns]
 
@@ -48,14 +45,7 @@ if uploaded_file:
                     st.write(f"**Total:** {total}")
                     st.write(f"✅ Benign: {benign}")
                     st.write(f"🚨 Malicious: {malicious}")
-
-                    st.progress(benign / total)
-
-                    st.bar_chart(pd.DataFrame({
-                        "Label": ["Benign", "Malicious"],
-                        "Count": [benign, malicious]
-                    }).set_index("Label"))
-
+                    
                     st.subheader("🚨 Malicious Connections")
                     st.write(clean_df[clean_df["prediction"] == "malicious connection"])
 
