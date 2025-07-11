@@ -33,7 +33,7 @@ st.header("🔢 Connection Details")
 col1, col2 = st.columns(2)
 
 with col1:
-    proto = st.selectbox("Protocol")
+    proto = st.text_input("Protocol")
     conn_state = st.text_input("Connection State")
     history = st.text_input("History")
 
